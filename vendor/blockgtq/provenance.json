@@ -1,0 +1,15 @@
+{
+  "sha256": {
+    "v_packing.py": "3a2ee3fc16b24ae4c3660a7c4e8123eec2c68fbdd6cc6e96f3633ee59b65e165",
+    "allocator.py": "d6d4e43242155e4be9cbb297281acf98b9200815485fb67cc06c14d1f25e2129",
+    "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "tq.py": "eb943620b67078f27050b0b0cf3837c3a7a15264ab31db2ec1448131a9fe1e57",
+    "production_cache.py": "4447463aff230d4b386b5e3884f2c9c6eb8c99a0fdedc7a6fb7f387b54220755",
+    "production_decode.py": "b1d02255ef7a2c3b75ab9a1930d8be34c981cd5e02ece24be213cf356ec7a8e1",
+    "block_gtq_pipeline.py": "e2d9df5e658cbfdcb9928abfd7d6f35abcf69c2c37d3f64e90ccf95524b88acc",
+    "quantizer.py": "ab1077f729f567142537bcd3a140cb24564a36c61ebb268832f9ec6d039fbeb6",
+    "quant_kernels.py": "a5638eb591daf93e413cabafd4f8713caab90dbbd46f30410dd61b46e247b32c"
+  },
+  "repository": "https://github.com/JIA-Lab-research/blockgtq",
+  "commit": "3fe14e7d4b8a6c85402818f7e22052527ed42e93"
+}

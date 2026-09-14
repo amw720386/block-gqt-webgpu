@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/JIA-Lab-research/blockgtq",
+  "commit": "3fe14e7d4b8a6c85402818f7e22052527ed42e93",
+  "path_prefix": "blockgtq/",
+  "license": "../blockgtq/LICENSE",
+  "sha256": {
+    "freq_analysis.py": "36502a882c63e62840eaffd677c787ab8093449432a1e59940456409d0a3bc85",
+    "rope_utils.py": "c88f47876358c7a50e0e741f4ee8b1b942c9ba3bb85454b746c8d8cca605bb01"
+  }
+}
