@@ -1,0 +1,7 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Block-GTQ attention correctness</title>
+<pre id="result">Running correctness comparisons…</pre>
+<script type="module">
+import {runAttention} from '/dist/tests/webgpu/attention-test.js';
+window.attentionResult=runAttention(new URLSearchParams(location.search).get('compressed')==='1').catch(e=>({passed:false,error:String(e),stack:e.stack}));
+window.attentionResult.then(r=>document.querySelector('#result').textContent=JSON.stringify(r,null,2));
+</script></html>

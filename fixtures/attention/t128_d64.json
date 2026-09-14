@@ -1,0 +1,291 @@
+{
+  "version": 2,
+  "name": "t128_d64",
+  "upstream_commit": "3fe14e7d4b8a6c85402818f7e22052527ed42e93",
+  "layout": "mixed_d64",
+  "layout_sha256": "fd4e399a9016af908889a4f926743fa48a739274954bae3579b1b6f9c7532cea",
+  "oracle": "CPU PyTorch attention; production compression arithmetic emulator",
+  "cuda_encoder_validated": false,
+  "coordinate_space": "synthetic-rope-free",
+  "context_length": 128,
+  "dim": 64,
+  "queries": 3,
+  "k_storage": "f16",
+  "q_storage": "f32",
+  "v_storage": "f32",
+  "accumulation": "f32",
+  "tolerances": {
+    "baseline": {
+      "logits": [
+        0.0001,
+        2e-05
+      ],
+      "probabilities": [
+        1e-05,
+        0.0001
+      ],
+      "output": [
+        0.0001,
+        0.0001
+      ]
+    },
+    "port": {
+      "logits": [
+        0.005,
+        0.002
+      ],
+      "probabilities": [
+        0.0005,
+        0.002
+      ],
+      "output": [
+        0.001,
+        0.002
+      ]
+    }
+  },
+  "environment": {
+    "torch": "2.12.0+cpu",
+    "device": "cpu",
+    "threads": 1
+  },
+  "endianness": "little",
+  "binary": "t128_d64.bin",
+  "byte_length": 145292,
+  "sha256": "133ae3e698a70306b2e7d243b2649ccd41eff9a53e14a311be78a4ca7421bb99",
+  "arrays": {
+    "q": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        64
+      ],
+      "offset": 0,
+      "nbytes": 768
+    },
+    "k": {
+      "dtype": "f16",
+      "shape": [
+        128,
+        64
+      ],
+      "offset": 768,
+      "nbytes": 16384
+    },
+    "k_source": {
+      "dtype": "f32",
+      "shape": [
+        128,
+        64
+      ],
+      "offset": 17152,
+      "nbytes": 32768
+    },
+    "v": {
+      "dtype": "f32",
+      "shape": [
+        128,
+        64
+      ],
+      "offset": 49920,
+      "nbytes": 32768
+    },
+    "positions": {
+      "dtype": "u32",
+      "shape": [
+        3
+      ],
+      "offset": 82688,
+      "nbytes": 12
+    },
+    "packed_k": {
+      "dtype": "u8",
+      "shape": [
+        128,
+        43
+      ],
+      "offset": 82700,
+      "nbytes": 5504
+    },
+    "norms": {
+      "dtype": "f16",
+      "shape": [
+        128,
+        5
+      ],
+      "offset": 88204,
+      "nbytes": 1280
+    },
+    "reconstructed_k": {
+      "dtype": "f32",
+      "shape": [
+        128,
+        64
+      ],
+      "offset": 89484,
+      "nbytes": 32768
+    },
+    "baseline_logits": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        128
+      ],
+      "offset": 122252,
+      "nbytes": 1536
+    },
+    "baseline_probabilities": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        128
+      ],
+      "offset": 123788,
+      "nbytes": 1536
+    },
+    "baseline_output": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        64
+      ],
+      "offset": 125324,
+      "nbytes": 768
+    },
+    "compressed_logits": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        128
+      ],
+      "offset": 126092,
+      "nbytes": 1536
+    },
+    "compressed_probabilities": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        128
+      ],
+      "offset": 127628,
+      "nbytes": 1536
+    },
+    "compressed_output": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        64
+      ],
+      "offset": 129164,
+      "nbytes": 768
+    },
+    "fp32_source_logits": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        128
+      ],
+      "offset": 129932,
+      "nbytes": 1536
+    },
+    "fp32_source_probabilities": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        128
+      ],
+      "offset": 131468,
+      "nbytes": 1536
+    },
+    "fp32_source_output": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        64
+      ],
+      "offset": 133004,
+      "nbytes": 768
+    },
+    "causal_baseline_logits": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        128
+      ],
+      "offset": 133772,
+      "nbytes": 1536
+    },
+    "causal_baseline_probabilities": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        128
+      ],
+      "offset": 135308,
+      "nbytes": 1536
+    },
+    "causal_baseline_output": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        64
+      ],
+      "offset": 136844,
+      "nbytes": 768
+    },
+    "causal_compressed_logits": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        128
+      ],
+      "offset": 137612,
+      "nbytes": 1536
+    },
+    "causal_compressed_probabilities": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        128
+      ],
+      "offset": 139148,
+      "nbytes": 1536
+    },
+    "causal_compressed_output": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        64
+      ],
+      "offset": 140684,
+      "nbytes": 768
+    },
+    "causal_fp32_source_logits": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        128
+      ],
+      "offset": 141452,
+      "nbytes": 1536
+    },
+    "causal_fp32_source_probabilities": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        128
+      ],
+      "offset": 142988,
+      "nbytes": 1536
+    },
+    "causal_fp32_source_output": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        64
+      ],
+      "offset": 144524,
+      "nbytes": 768
+    }
+  }
+}
