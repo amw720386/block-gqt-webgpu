@@ -1,0 +1,210 @@
+{
+  "upstream_commit": "3fe14e7d4b8a6c85402818f7e22052527ed42e93",
+  "oracle": "tq.TurboQuantMSE.quantize + dequantize",
+  "packing_oracle": "v_packing.pack_v_codes",
+  "packing": "uniform-lsb-byte-v1",
+  "coordinate_space": "synthetic-rope-free",
+  "norm_dtype": "f32",
+  "norm_correction": true,
+  "rows": 5,
+  "dim": 10,
+  "bits": 3,
+  "row_bytes": 6,
+  "group_order": "one uniform contiguous group; no mixed-K permutation",
+  "group_dimensions": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  ],
+  "requested_budget": 15,
+  "row_cases": [
+    "zero",
+    "signed_integers",
+    "fractions",
+    "tiny_norm",
+    "large_norm"
+  ],
+  "tolerance": {
+    "atol": 0.0005,
+    "rtol": 2e-06
+  },
+  "environment": {
+    "python": "3.12.14",
+    "torch": "2.12.0+cpu",
+    "numpy": "2.3.5",
+    "scipy": "1.16.3",
+    "device": "cpu",
+    "threads": 1
+  },
+  "version": 1,
+  "endianness": "little",
+  "binary": "tq3.bin",
+  "byte_length": 2180,
+  "sha256": "2e29ae4a9e5c4d8647a56ad192c1b7b8ba30eb4ed93a824158b7e6deeef3c3b4",
+  "arrays": {
+    "original": {
+      "dtype": "f32",
+      "shape": [
+        5,
+        10
+      ],
+      "offset": 0,
+      "nbytes": 200
+    },
+    "scores": {
+      "dtype": "f32",
+      "shape": [
+        5
+      ],
+      "offset": 200,
+      "nbytes": 20
+    },
+    "allocation": {
+      "dtype": "u32",
+      "shape": [
+        5
+      ],
+      "offset": 220,
+      "nbytes": 20
+    },
+    "pair_groups": {
+      "dtype": "u32",
+      "shape": [
+        5
+      ],
+      "offset": 240,
+      "nbytes": 20
+    },
+    "dimension_groups": {
+      "dtype": "u32",
+      "shape": [
+        10
+      ],
+      "offset": 260,
+      "nbytes": 40
+    },
+    "rotation": {
+      "dtype": "f32",
+      "shape": [
+        10,
+        10
+      ],
+      "offset": 300,
+      "nbytes": 400
+    },
+    "centroids": {
+      "dtype": "f32",
+      "shape": [
+        8
+      ],
+      "offset": 700,
+      "nbytes": 32
+    },
+    "boundaries": {
+      "dtype": "f32",
+      "shape": [
+        7
+      ],
+      "offset": 732,
+      "nbytes": 28
+    },
+    "normalized": {
+      "dtype": "f32",
+      "shape": [
+        5,
+        10
+      ],
+      "offset": 760,
+      "nbytes": 200
+    },
+    "rotated": {
+      "dtype": "f32",
+      "shape": [
+        5,
+        10
+      ],
+      "offset": 960,
+      "nbytes": 200
+    },
+    "indices": {
+      "dtype": "u32",
+      "shape": [
+        5,
+        10
+      ],
+      "offset": 1160,
+      "nbytes": 200
+    },
+    "norms": {
+      "dtype": "f32",
+      "shape": [
+        5
+      ],
+      "offset": 1360,
+      "nbytes": 20
+    },
+    "packed": {
+      "dtype": "u8",
+      "shape": [
+        5,
+        6
+      ],
+      "offset": 1380,
+      "nbytes": 30
+    },
+    "reconstructed": {
+      "dtype": "f32",
+      "shape": [
+        5,
+        10
+      ],
+      "offset": 1412,
+      "nbytes": 200
+    },
+    "roundtrip": {
+      "dtype": "f32",
+      "shape": [
+        5,
+        10
+      ],
+      "offset": 1612,
+      "nbytes": 200
+    },
+    "uncorrected": {
+      "dtype": "f32",
+      "shape": [
+        5,
+        10
+      ],
+      "offset": 1812,
+      "nbytes": 200
+    },
+    "boundary_probes": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        7
+      ],
+      "offset": 2012,
+      "nbytes": 84
+    },
+    "boundary_indices": {
+      "dtype": "u32",
+      "shape": [
+        3,
+        7
+      ],
+      "offset": 2096,
+      "nbytes": 84
+    }
+  }
+}

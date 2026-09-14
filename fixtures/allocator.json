@@ -1,0 +1,211 @@
+{
+  "upstream_commit": "3fe14e7d4b8a6c85402818f7e22052527ed42e93",
+  "cases": [
+    {
+      "name": "unequal",
+      "scores": [
+        1,
+        4,
+        16,
+        64
+      ],
+      "budget": 12,
+      "min_bits": 1,
+      "max_bits": 8,
+      "expected": [
+        2,
+        3,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "equal_tie",
+      "scores": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "budget": 6,
+      "min_bits": 1,
+      "max_bits": 8,
+      "expected": [
+        2,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "priority_tie",
+      "scores": [
+        4,
+        1,
+        1
+      ],
+      "budget": 6,
+      "min_bits": 1,
+      "max_bits": 8,
+      "expected": [
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "name": "all_zero",
+      "scores": [
+        0,
+        0,
+        0
+      ],
+      "budget": 15,
+      "min_bits": 1,
+      "max_bits": 8,
+      "expected": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "mixed_zero",
+      "scores": [
+        0,
+        1,
+        0,
+        4
+      ],
+      "budget": 20,
+      "min_bits": 1,
+      "max_bits": 4,
+      "expected": [
+        1,
+        4,
+        1,
+        4
+      ]
+    },
+    {
+      "name": "below_minimum",
+      "scores": [
+        1,
+        2,
+        3
+      ],
+      "budget": 0,
+      "min_bits": 2,
+      "max_bits": 4,
+      "expected": [
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "at_minimum",
+      "scores": [
+        1,
+        2,
+        3
+      ],
+      "budget": 6,
+      "min_bits": 2,
+      "max_bits": 4,
+      "expected": [
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "above_maximum",
+      "scores": [
+        1,
+        2,
+        3
+      ],
+      "budget": 99,
+      "min_bits": 1,
+      "max_bits": 3,
+      "expected": [
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "name": "fixed_bounds",
+      "scores": [
+        3,
+        2,
+        1
+      ],
+      "budget": 99,
+      "min_bits": 2,
+      "max_bits": 2,
+      "expected": [
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "float32_tie",
+      "scores": [
+        1.00000001,
+        1.00000002,
+        1
+      ],
+      "budget": 4,
+      "min_bits": 1,
+      "max_bits": 8,
+      "expected": [
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "single_pair",
+      "scores": [
+        2
+      ],
+      "budget": 3,
+      "min_bits": 1,
+      "max_bits": 8,
+      "expected": [
+        3
+      ]
+    },
+    {
+      "name": "empty_zero_budget",
+      "scores": [],
+      "budget": 0,
+      "min_bits": 1,
+      "max_bits": 8,
+      "expected": []
+    },
+    {
+      "name": "uniform_fixture",
+      "scores": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "budget": 15,
+      "min_bits": 1,
+      "max_bits": 8,
+      "expected": [
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  ]
+}
