@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>Block-GTQ Phase 2 correctness</title>
+<h1>Mixed K correctness</h1><pre id="result">Running…</pre>
+<script type="module">
+import {runCorrectness} from '/dist/tests/webgpu/phase2/phase2-test.js';
+window.phase2Result=runCorrectness().catch(e=>({passed:false,error:String(e),stack:e.stack}));
+window.phase2Result.then(r=>document.querySelector('#result').textContent=JSON.stringify(r,null,2));
+</script></html>

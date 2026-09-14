@@ -1,0 +1,7 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Block-GTQ diagnostic microbenchmarks</title>
+<h1>Development microbenchmarks</h1><pre id="result">Running warmed repeated measurements…</pre>
+<script type="module">
+import {benchmark} from '/dist/tests/webgpu/phase2/microbench.js';
+window.benchmarkResult=benchmark().catch(e=>({passed:false,error:String(e),stack:e.stack}));
+window.benchmarkResult.then(r=>document.querySelector('#result').textContent=JSON.stringify(r,null,2));
+</script></html>
