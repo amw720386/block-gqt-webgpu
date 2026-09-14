@@ -1,0 +1,749 @@
+{
+  "upstream_commit": "3fe14e7d4b8a6c85402818f7e22052527ed42e93",
+  "oracle": "v_packing.pack_v_codes",
+  "cases": [
+    {
+      "name": "b1_d1",
+      "bits": 1,
+      "dim": 1
+    },
+    {
+      "name": "b1_d2",
+      "bits": 1,
+      "dim": 2
+    },
+    {
+      "name": "b1_d3",
+      "bits": 1,
+      "dim": 3
+    },
+    {
+      "name": "b1_d7",
+      "bits": 1,
+      "dim": 7
+    },
+    {
+      "name": "b1_d8",
+      "bits": 1,
+      "dim": 8
+    },
+    {
+      "name": "b1_d9",
+      "bits": 1,
+      "dim": 9
+    },
+    {
+      "name": "b1_d10",
+      "bits": 1,
+      "dim": 10
+    },
+    {
+      "name": "b1_d13",
+      "bits": 1,
+      "dim": 13
+    },
+    {
+      "name": "b2_d1",
+      "bits": 2,
+      "dim": 1
+    },
+    {
+      "name": "b2_d2",
+      "bits": 2,
+      "dim": 2
+    },
+    {
+      "name": "b2_d3",
+      "bits": 2,
+      "dim": 3
+    },
+    {
+      "name": "b2_d7",
+      "bits": 2,
+      "dim": 7
+    },
+    {
+      "name": "b2_d8",
+      "bits": 2,
+      "dim": 8
+    },
+    {
+      "name": "b2_d9",
+      "bits": 2,
+      "dim": 9
+    },
+    {
+      "name": "b2_d10",
+      "bits": 2,
+      "dim": 10
+    },
+    {
+      "name": "b2_d13",
+      "bits": 2,
+      "dim": 13
+    },
+    {
+      "name": "b3_d1",
+      "bits": 3,
+      "dim": 1
+    },
+    {
+      "name": "b3_d2",
+      "bits": 3,
+      "dim": 2
+    },
+    {
+      "name": "b3_d3",
+      "bits": 3,
+      "dim": 3
+    },
+    {
+      "name": "b3_d7",
+      "bits": 3,
+      "dim": 7
+    },
+    {
+      "name": "b3_d8",
+      "bits": 3,
+      "dim": 8
+    },
+    {
+      "name": "b3_d9",
+      "bits": 3,
+      "dim": 9
+    },
+    {
+      "name": "b3_d10",
+      "bits": 3,
+      "dim": 10
+    },
+    {
+      "name": "b3_d13",
+      "bits": 3,
+      "dim": 13
+    },
+    {
+      "name": "b4_d1",
+      "bits": 4,
+      "dim": 1
+    },
+    {
+      "name": "b4_d2",
+      "bits": 4,
+      "dim": 2
+    },
+    {
+      "name": "b4_d3",
+      "bits": 4,
+      "dim": 3
+    },
+    {
+      "name": "b4_d7",
+      "bits": 4,
+      "dim": 7
+    },
+    {
+      "name": "b4_d8",
+      "bits": 4,
+      "dim": 8
+    },
+    {
+      "name": "b4_d9",
+      "bits": 4,
+      "dim": 9
+    },
+    {
+      "name": "b4_d10",
+      "bits": 4,
+      "dim": 10
+    },
+    {
+      "name": "b4_d13",
+      "bits": 4,
+      "dim": 13
+    }
+  ],
+  "version": 1,
+  "endianness": "little",
+  "binary": "packing.bin",
+  "byte_length": 684,
+  "sha256": "58af72628cfb9e9a6c9b2f3148078f0b61ce3c002679952fbfb33ac250be3b0e",
+  "arrays": {
+    "b1_d1_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        1
+      ],
+      "offset": 0,
+      "nbytes": 2
+    },
+    "b1_d1_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        1
+      ],
+      "offset": 4,
+      "nbytes": 2
+    },
+    "b1_d2_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        2
+      ],
+      "offset": 8,
+      "nbytes": 4
+    },
+    "b1_d2_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        1
+      ],
+      "offset": 12,
+      "nbytes": 2
+    },
+    "b1_d3_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        3
+      ],
+      "offset": 16,
+      "nbytes": 6
+    },
+    "b1_d3_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        1
+      ],
+      "offset": 24,
+      "nbytes": 2
+    },
+    "b1_d7_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        7
+      ],
+      "offset": 28,
+      "nbytes": 14
+    },
+    "b1_d7_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        1
+      ],
+      "offset": 44,
+      "nbytes": 2
+    },
+    "b1_d8_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        8
+      ],
+      "offset": 48,
+      "nbytes": 16
+    },
+    "b1_d8_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        1
+      ],
+      "offset": 64,
+      "nbytes": 2
+    },
+    "b1_d9_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        9
+      ],
+      "offset": 68,
+      "nbytes": 18
+    },
+    "b1_d9_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        2
+      ],
+      "offset": 88,
+      "nbytes": 4
+    },
+    "b1_d10_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        10
+      ],
+      "offset": 92,
+      "nbytes": 20
+    },
+    "b1_d10_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        2
+      ],
+      "offset": 112,
+      "nbytes": 4
+    },
+    "b1_d13_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        13
+      ],
+      "offset": 116,
+      "nbytes": 26
+    },
+    "b1_d13_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        2
+      ],
+      "offset": 144,
+      "nbytes": 4
+    },
+    "b2_d1_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        1
+      ],
+      "offset": 148,
+      "nbytes": 2
+    },
+    "b2_d1_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        1
+      ],
+      "offset": 152,
+      "nbytes": 2
+    },
+    "b2_d2_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        2
+      ],
+      "offset": 156,
+      "nbytes": 4
+    },
+    "b2_d2_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        1
+      ],
+      "offset": 160,
+      "nbytes": 2
+    },
+    "b2_d3_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        3
+      ],
+      "offset": 164,
+      "nbytes": 6
+    },
+    "b2_d3_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        1
+      ],
+      "offset": 172,
+      "nbytes": 2
+    },
+    "b2_d7_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        7
+      ],
+      "offset": 176,
+      "nbytes": 14
+    },
+    "b2_d7_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        2
+      ],
+      "offset": 192,
+      "nbytes": 4
+    },
+    "b2_d8_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        8
+      ],
+      "offset": 196,
+      "nbytes": 16
+    },
+    "b2_d8_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        2
+      ],
+      "offset": 212,
+      "nbytes": 4
+    },
+    "b2_d9_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        9
+      ],
+      "offset": 216,
+      "nbytes": 18
+    },
+    "b2_d9_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        3
+      ],
+      "offset": 236,
+      "nbytes": 6
+    },
+    "b2_d10_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        10
+      ],
+      "offset": 244,
+      "nbytes": 20
+    },
+    "b2_d10_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        3
+      ],
+      "offset": 264,
+      "nbytes": 6
+    },
+    "b2_d13_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        13
+      ],
+      "offset": 272,
+      "nbytes": 26
+    },
+    "b2_d13_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        4
+      ],
+      "offset": 300,
+      "nbytes": 8
+    },
+    "b3_d1_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        1
+      ],
+      "offset": 308,
+      "nbytes": 2
+    },
+    "b3_d1_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        3
+      ],
+      "offset": 312,
+      "nbytes": 6
+    },
+    "b3_d2_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        2
+      ],
+      "offset": 320,
+      "nbytes": 4
+    },
+    "b3_d2_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        3
+      ],
+      "offset": 324,
+      "nbytes": 6
+    },
+    "b3_d3_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        3
+      ],
+      "offset": 332,
+      "nbytes": 6
+    },
+    "b3_d3_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        3
+      ],
+      "offset": 340,
+      "nbytes": 6
+    },
+    "b3_d7_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        7
+      ],
+      "offset": 348,
+      "nbytes": 14
+    },
+    "b3_d7_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        3
+      ],
+      "offset": 364,
+      "nbytes": 6
+    },
+    "b3_d8_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        8
+      ],
+      "offset": 372,
+      "nbytes": 16
+    },
+    "b3_d8_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        3
+      ],
+      "offset": 388,
+      "nbytes": 6
+    },
+    "b3_d9_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        9
+      ],
+      "offset": 396,
+      "nbytes": 18
+    },
+    "b3_d9_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        6
+      ],
+      "offset": 416,
+      "nbytes": 12
+    },
+    "b3_d10_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        10
+      ],
+      "offset": 428,
+      "nbytes": 20
+    },
+    "b3_d10_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        6
+      ],
+      "offset": 448,
+      "nbytes": 12
+    },
+    "b3_d13_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        13
+      ],
+      "offset": 460,
+      "nbytes": 26
+    },
+    "b3_d13_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        6
+      ],
+      "offset": 488,
+      "nbytes": 12
+    },
+    "b4_d1_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        1
+      ],
+      "offset": 500,
+      "nbytes": 2
+    },
+    "b4_d1_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        1
+      ],
+      "offset": 504,
+      "nbytes": 2
+    },
+    "b4_d2_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        2
+      ],
+      "offset": 508,
+      "nbytes": 4
+    },
+    "b4_d2_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        1
+      ],
+      "offset": 512,
+      "nbytes": 2
+    },
+    "b4_d3_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        3
+      ],
+      "offset": 516,
+      "nbytes": 6
+    },
+    "b4_d3_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        2
+      ],
+      "offset": 524,
+      "nbytes": 4
+    },
+    "b4_d7_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        7
+      ],
+      "offset": 528,
+      "nbytes": 14
+    },
+    "b4_d7_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        4
+      ],
+      "offset": 544,
+      "nbytes": 8
+    },
+    "b4_d8_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        8
+      ],
+      "offset": 552,
+      "nbytes": 16
+    },
+    "b4_d8_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        4
+      ],
+      "offset": 568,
+      "nbytes": 8
+    },
+    "b4_d9_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        9
+      ],
+      "offset": 576,
+      "nbytes": 18
+    },
+    "b4_d9_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        5
+      ],
+      "offset": 596,
+      "nbytes": 10
+    },
+    "b4_d10_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        10
+      ],
+      "offset": 608,
+      "nbytes": 20
+    },
+    "b4_d10_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        5
+      ],
+      "offset": 628,
+      "nbytes": 10
+    },
+    "b4_d13_codes": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        13
+      ],
+      "offset": 640,
+      "nbytes": 26
+    },
+    "b4_d13_packed": {
+      "dtype": "u8",
+      "shape": [
+        2,
+        7
+      ],
+      "offset": 668,
+      "nbytes": 14
+    }
+  }
+}

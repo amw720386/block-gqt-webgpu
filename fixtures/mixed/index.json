@@ -1,0 +1,55 @@
+{
+  "version": 2,
+  "cases": [
+    {
+      "name": "low_d16",
+      "dim": 16,
+      "average_bits": 2.5
+    },
+    {
+      "name": "mixed_d16",
+      "dim": 16,
+      "average_bits": 2.75
+    },
+    {
+      "name": "low_d32",
+      "dim": 32,
+      "average_bits": 2.5
+    },
+    {
+      "name": "mixed_d32",
+      "dim": 32,
+      "average_bits": 2.75
+    },
+    {
+      "name": "low_d64",
+      "dim": 64,
+      "average_bits": 2.5
+    },
+    {
+      "name": "mixed_d64",
+      "dim": 64,
+      "average_bits": 2.75
+    },
+    {
+      "name": "low_d128",
+      "dim": 128,
+      "average_bits": 2.5
+    },
+    {
+      "name": "mixed_d128",
+      "dim": 128,
+      "average_bits": 2.75
+    },
+    {
+      "name": "awkward_all_widths",
+      "dim": 16,
+      "average_bits": 4.5
+    },
+    {
+      "name": "only_high",
+      "dim": 16,
+      "average_bits": 5.5
+    }
+  ]
+}

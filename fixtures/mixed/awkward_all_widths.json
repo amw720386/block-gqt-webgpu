@@ -1,0 +1,307 @@
+{
+  "version": 2,
+  "name": "awkward_all_widths",
+  "upstream_commit": "3fe14e7d4b8a6c85402818f7e22052527ed42e93",
+  "oracle": "upstream CPU grouping/LUT/host packing; Triton encoder emulated in PyTorch FP32",
+  "cuda_encoder_validated": false,
+  "coordinate_space": "synthetic-rope-free",
+  "rotation_threshold": 2,
+  "input_dtype": "FP16 values promoted to FP32",
+  "packing": "production-k-nibble-byte-v1",
+  "rows": 5,
+  "dim": 16,
+  "n_groups": 8,
+  "norm_stride": 9,
+  "row_bytes": 15,
+  "logical_row_bytes": 12,
+  "nopack_start": 8,
+  "capacity": 7,
+  "n_bins": 256,
+  "max_centroids": 256,
+  "requested_budget": 36,
+  "average_bits": 4.5,
+  "tolerance": {
+    "atol": 0.001,
+    "rtol": 2e-05
+  },
+  "norm_conversion_max_abs": 0.0518951416015625,
+  "quantization_max_abs": 56.11975860595703,
+  "environment": {
+    "python": "3.12.14",
+    "torch": "2.12.0+cpu",
+    "numpy": "2.3.5",
+    "scipy": "1.16.3",
+    "device": "cpu",
+    "threads": 1
+  },
+  "endianness": "little",
+  "binary": "awkward_all_widths.bin",
+  "byte_length": 38736,
+  "sha256": "86cbfcb59a4d44d514780b758ae3c03a7b679a96e6182b8d76d44da64ae73ae9",
+  "arrays": {
+    "scores": {
+      "dtype": "f32",
+      "shape": [
+        8
+      ],
+      "offset": 0,
+      "nbytes": 32
+    },
+    "allocation": {
+      "dtype": "u32",
+      "shape": [
+        8
+      ],
+      "offset": 32,
+      "nbytes": 32
+    },
+    "pair_order": {
+      "dtype": "u32",
+      "shape": [
+        8
+      ],
+      "offset": 64,
+      "nbytes": 32
+    },
+    "pair_groups": {
+      "dtype": "u32",
+      "shape": [
+        8
+      ],
+      "offset": 96,
+      "nbytes": 32
+    },
+    "head_perm": {
+      "dtype": "u32",
+      "shape": [
+        16
+      ],
+      "offset": 128,
+      "nbytes": 64
+    },
+    "inv_head_perm": {
+      "dtype": "u32",
+      "shape": [
+        16
+      ],
+      "offset": 192,
+      "nbytes": 64
+    },
+    "pack_perm": {
+      "dtype": "u32",
+      "shape": [
+        16
+      ],
+      "offset": 256,
+      "nbytes": 64
+    },
+    "inv_pack_perm": {
+      "dtype": "u32",
+      "shape": [
+        16
+      ],
+      "offset": 320,
+      "nbytes": 64
+    },
+    "group_of": {
+      "dtype": "u32",
+      "shape": [
+        16
+      ],
+      "offset": 384,
+      "nbytes": 64
+    },
+    "group_bits": {
+      "dtype": "u32",
+      "shape": [
+        8
+      ],
+      "offset": 448,
+      "nbytes": 32
+    },
+    "group_offsets": {
+      "dtype": "u32",
+      "shape": [
+        9
+      ],
+      "offset": 480,
+      "nbytes": 36
+    },
+    "group_byte_offsets": {
+      "dtype": "u32",
+      "shape": [
+        9
+      ],
+      "offset": 516,
+      "nbytes": 36
+    },
+    "rotation": {
+      "dtype": "f32",
+      "shape": [
+        16,
+        16
+      ],
+      "offset": 552,
+      "nbytes": 1024
+    },
+    "centroids": {
+      "dtype": "f32",
+      "shape": [
+        16,
+        256
+      ],
+      "offset": 1576,
+      "nbytes": 16384
+    },
+    "boundaries": {
+      "dtype": "f32",
+      "shape": [
+        16,
+        255
+      ],
+      "offset": 17960,
+      "nbytes": 16320
+    },
+    "code_lut": {
+      "dtype": "u8",
+      "shape": [
+        8,
+        256
+      ],
+      "offset": 34280,
+      "nbytes": 2048
+    },
+    "pos_to_cb": {
+      "dtype": "u32",
+      "shape": [
+        16
+      ],
+      "offset": 36328,
+      "nbytes": 64
+    },
+    "lut_offsets": {
+      "dtype": "f32",
+      "shape": [
+        16
+      ],
+      "offset": 36392,
+      "nbytes": 64
+    },
+    "lut_inv_scales": {
+      "dtype": "f32",
+      "shape": [
+        16
+      ],
+      "offset": 36456,
+      "nbytes": 64
+    },
+    "original": {
+      "dtype": "f32",
+      "shape": [
+        5,
+        16
+      ],
+      "offset": 36520,
+      "nbytes": 320
+    },
+    "codes": {
+      "dtype": "u8",
+      "shape": [
+        5,
+        16
+      ],
+      "offset": 36840,
+      "nbytes": 80
+    },
+    "raw_norms": {
+      "dtype": "f32",
+      "shape": [
+        5,
+        9
+      ],
+      "offset": 36920,
+      "nbytes": 180
+    },
+    "corrected_f32": {
+      "dtype": "f32",
+      "shape": [
+        5,
+        9
+      ],
+      "offset": 37100,
+      "nbytes": 180
+    },
+    "persistent_norms": {
+      "dtype": "f16",
+      "shape": [
+        5,
+        9
+      ],
+      "offset": 37280,
+      "nbytes": 90
+    },
+    "norm_bits": {
+      "dtype": "u16",
+      "shape": [
+        5,
+        9
+      ],
+      "offset": 37372,
+      "nbytes": 90
+    },
+    "packed": {
+      "dtype": "u8",
+      "shape": [
+        5,
+        15
+      ],
+      "offset": 37464,
+      "nbytes": 75
+    },
+    "rotated": {
+      "dtype": "f32",
+      "shape": [
+        5,
+        16
+      ],
+      "offset": 37540,
+      "nbytes": 320
+    },
+    "reconstructed_f32": {
+      "dtype": "f32",
+      "shape": [
+        5,
+        16
+      ],
+      "offset": 37860,
+      "nbytes": 320
+    },
+    "reconstructed_f16": {
+      "dtype": "f32",
+      "shape": [
+        5,
+        16
+      ],
+      "offset": 38180,
+      "nbytes": 320
+    },
+    "cache_packed": {
+      "dtype": "u8",
+      "shape": [
+        7,
+        15
+      ],
+      "offset": 38500,
+      "nbytes": 105
+    },
+    "cache_norms": {
+      "dtype": "f16",
+      "shape": [
+        7,
+        9
+      ],
+      "offset": 38608,
+      "nbytes": 126
+    }
+  }
+}
