@@ -1,0 +1,44 @@
+# Dependencies and Python environments
+node_modules/
+.venv/
+.python-deps/
+*.egg-info/
+__pycache__/
+*.py[cod]
+
+# Build and tool caches
+build/
+dist/
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.browser-profile/
+
+# Downloaded models and Hugging Face caches
+models/smollm2/
+.huggingface/
+huggingface/
+hf_cache/
+*.safetensors
+*.gguf
+*.bin.index.json
+
+# Generated test, benchmark, and profiling output
+results/
+artifacts/
+benchmarks/charts/
+benchmarks/tmp/
+benchmarks/profile*/
+*.trace
+*.cpuprofile
+*.heapprofile
+
+# Editors and operating systems
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini

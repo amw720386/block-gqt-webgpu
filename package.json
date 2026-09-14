@@ -1,0 +1,33 @@
+{
+  "name": "block-gtq-webgpu",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "node scripts/build.mjs",
+    "test": "npm run test:python && npm run test:codec && npm run test:attention && npm run test:attention:optimized && npm run test:model:all",
+    "test:python": "python -m unittest discover -s tests -v",
+    "test:codec": "npm run build && node scripts/test-webgpu.mjs && node scripts/test-phase2.mjs && python -m tests.oracles.verify_mixed",
+    "test:webgpu": "npm run test:codec",
+    "test:attention:baseline": "npm run build && node scripts/test-attention.mjs",
+    "test:attention": "npm run test:attention:baseline && node scripts/test-attention.mjs --compressed && python -m tests.oracles.verify_attention",
+    "test:attention:optimized": "npm run build && node scripts/phase4-run.mjs optimized-test",
+    "example": "npm run build && node scripts/serve.mjs",
+    "bench:attention": "npm run build && node scripts/phase4-run.mjs phase4-bench",
+    "bench:attention:baseline": "npm run build && node scripts/benchmark-attention.mjs",
+    "demo": "npm run build && node scripts/demo.mjs",
+    "test:model": "npm run build && node scripts/model-browser.mjs model-test",
+    "test:model:compressed": "npm run build && node scripts/model-browser.mjs model-compressed-test",
+    "test:model:codec": "npm run build && node scripts/model-browser.mjs model-codec-test",
+    "test:model:live": "npm run build && node scripts/model-browser.mjs model-live-test",
+    "test:model:all": "npm run test:model && python -m tests.oracles.verify_model && npm run test:model:compressed && python -m tests.oracles.verify_model --compressed && npm run test:model:codec && npm run test:model:live && npm run build && node scripts/model-browser.mjs model-primitives",
+    "bench:model": "npm run build && node scripts/model-browser.mjs model-benchmark",
+    "bench:model:decode": "npm run build && node scripts/model-browser.mjs model-decode-benchmark",
+    "bench:codec": "npm run build && node scripts/benchmark.mjs",
+    "profile:attention": "npm run build && node scripts/phase4-run.mjs profile"
+  },
+  "devDependencies": {
+    "playwright": "1.63.0",
+    "typescript": "7.0.2"
+  }
+}
