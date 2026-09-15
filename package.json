@@ -27,6 +27,7 @@
     "test:model:qwen": "npm run build && node scripts/model-browser.mjs model-live-test qwen2.5-0.5b",
     "test:model:all": "npm run test:model && python -m tests.oracles.verify_model && npm run test:model:compressed && python -m tests.oracles.verify_model --compressed && npm run test:model:codec && npm run test:model:live && npm run build && node scripts/model-browser.mjs model-primitives",
     "bench:model": "npm run build && node scripts/model-browser.mjs model-benchmark",
+    "bench:model:qwen": "npm run build && node scripts/model-browser.mjs model-benchmark qwen2.5-0.5b 4096",
     "bench:model:decode": "npm run build && node scripts/model-browser.mjs model-decode-benchmark",
     "bench:codec": "npm run build && node scripts/benchmark.mjs",
     "profile:attention": "npm run build && node scripts/phase4-run.mjs profile"

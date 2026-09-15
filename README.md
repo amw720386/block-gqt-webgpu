@@ -1,10 +1,12 @@
 # block-gtq-webgpu
 
-A WebGPU/WGSL port of Block-GTQ key-cache compression, integrated with SmolLM2-135M-Instruct.
+A WebGPU/WGSL port of Block-GTQ key-cache compression, integrated with SmolLM2-135M-Instruct and validated with Qwen2.5-0.5B-Instruct.
 
 At a 4,096-token prompt, persistent K storage including shared tables drops from **45.35 MiB to 20.24 MiB**—about **2.24× smaller**. Because V remains FP16, the full KV cache drops from **90.70 MiB to 65.60 MiB**. The compressed path is slower end to end.
 
 ![Measured KV memory and decode latency](assets/results.svg)
+
+![Qwen2.5-0.5B-Instruct KV-cache footprint](assets/qwen-results.svg)
 
 ## Results
 
@@ -20,6 +22,8 @@ SmolLM2-135M-Instruct, 4,096-token prompt, Intel Gen12LP graphics, Windows 11, C
 
 The K allocation is 2.24× smaller; the full KV cache is 1.38× smaller. Supplied-token decode is a teacher-forced timing supplement, not autonomous generation throughput. See the [raw model run](benchmarks/raw/2026-09-15T10-43-22-413Z-model.json), [decode supplement](benchmarks/raw/2026-09-15T10-52-04-928Z-model-decode.json), and [measurement notes](benchmarks/README.md).
 
+For Qwen2.5-0.5B-Instruct at the same 4,096-token prompt capacity, persistent K is **24.19 MiB vs 11.00 MiB** and full KV is **48.38 MiB vs 35.19 MiB**. Across three matched runs, median generated-token decode was **229.4 ms/token vs 348.4 ms/token**. See the [raw Qwen model run](benchmarks/raw/2026-09-15T18-46-39-594Z-model.json).
+
 The optimized synthetic compressed-attention path removed full reconstructed-K scratch and reduced the 4,096 × 128 benchmark from 47.78 ms to 2.16 ms while passing its correctness gates. This isolated result does not imply faster model inference; see the [raw attention record](benchmarks/raw/2026-09-15T09-27-00-112Z-phase4-phase4-bench.json).
 
 ## Quick start
@@ -34,7 +38,7 @@ npm ci
 npm run demo
 ```
 
-Open `http://127.0.0.1:8080`. The demo provides the two minimal inference paths:
+Open `http://127.0.0.1:8080` and select SmolLM2-135M-Instruct or Qwen2.5-0.5B-Instruct. The demo provides the two minimal inference paths:
 
 - **FP16 K/V** — ordinary inference with both cache tensors in FP16.
 - **Block-GTQ K + FP16 V** — compressed post-RoPE K with V unchanged.
@@ -52,7 +56,7 @@ SmolLM2
 
 Block-GTQ allocates bit widths to RoPE frequency pairs using calibrated Q/K energy. Equal-width pairs are grouped, rotated, quantized, and packed with FP16 scales. During decode, only each new post-RoPE key is encoded. Attention reconstructs groups inside the WGSL workgroup and immediately consumes them for QK; the model path never materializes the full historical K tensor.
 
-SmolLM2 uses nine query heads and three shared KV heads. This implementation is intentionally fixed to the pinned model specification in [`models/model.json`](models/model.json).
+The model adapter supplies decoder geometry and architecture details: SmolLM2 uses nine query heads and three KV heads, while the validated Qwen2.5-0.5B-Instruct target uses fourteen query heads and two KV heads. Both use the same attention and compressed-cache paths.
 
 ## Benchmarks
 
@@ -70,6 +74,8 @@ Benchmark programs live in `benchmarks/`; immutable final records live in `bench
 
 ```sh
 npm test
+npm run setup:qwen
+npm run test:model:qwen
 ```
 
 The suite covers allocator and bit assignment, nibble/byte packing, production quantization math, WebGPU encode/decode, baseline and compressed attention, live cache append, RoPE, and FP16/compressed model integration. Python references and export utilities live in `src/reference/` and `tests/oracles/`; deterministic fixtures live in `fixtures/`.
