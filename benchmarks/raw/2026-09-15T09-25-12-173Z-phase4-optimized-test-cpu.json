@@ -1,0 +1,439 @@
+{
+  "passed": true,
+  "gpu_record": "benchmarks\\raw\\2026-09-15T09-25-12-173Z-phase4-optimized-test.json",
+  "gpu_record_sha256": "45d2881de2a369fdb38ccdb8759ecf80fca43f085ecf13b763fd17eeef9d62a2",
+  "checks": [
+    {
+      "name": "t128_d64",
+      "causal": false,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 2.384185791015625e-07,
+          "relative_l2_error": 1.3627295913920534e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 7.450580596923828e-09,
+          "relative_l2_error": 1.4887781674133294e-07
+        },
+        "output": {
+          "max_absolute_error": 3.725290298461914e-08,
+          "relative_l2_error": 2.3392496473206847e-07
+        }
+      }
+    },
+    {
+      "name": "t128_d64",
+      "causal": true,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 2.384185791015625e-07,
+          "relative_l2_error": 1.338690793772912e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 1.1175870895385742e-08,
+          "relative_l2_error": 2.3158690964919515e-08
+        },
+        "output": {
+          "max_absolute_error": 4.470348358154297e-08,
+          "relative_l2_error": 3.688809613322519e-08
+        }
+      }
+    },
+    {
+      "name": "t256_d64",
+      "causal": false,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 3.5762786865234375e-07,
+          "relative_l2_error": 1.450851954132304e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 4.6566128730773926e-09,
+          "relative_l2_error": 1.7392946460859093e-07
+        },
+        "output": {
+          "max_absolute_error": 2.9802322387695312e-08,
+          "relative_l2_error": 2.505475436009874e-07
+        }
+      }
+    },
+    {
+      "name": "t256_d64",
+      "causal": true,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 3.5762786865234375e-07,
+          "relative_l2_error": 1.504048725564644e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 3.725290298461914e-09,
+          "relative_l2_error": 1.3484116934137091e-08
+        },
+        "output": {
+          "max_absolute_error": 2.421438694000244e-08,
+          "relative_l2_error": 2.8235708882107247e-08
+        }
+      }
+    },
+    {
+      "name": "t512_d64",
+      "causal": false,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 5.960464477539062e-07,
+          "relative_l2_error": 1.4645409862623637e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 7.450580596923828e-09,
+          "relative_l2_error": 1.6343932429663255e-07
+        },
+        "output": {
+          "max_absolute_error": 2.514570951461792e-08,
+          "relative_l2_error": 2.8523106720967917e-07
+        }
+      }
+    },
+    {
+      "name": "t512_d64",
+      "causal": true,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 5.960464477539062e-07,
+          "relative_l2_error": 1.5513961670876597e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 1.1175870895385742e-08,
+          "relative_l2_error": 1.783649850040092e-08
+        },
+        "output": {
+          "max_absolute_error": 3.725290298461914e-08,
+          "relative_l2_error": 2.9172722904036164e-08
+        }
+      }
+    },
+    {
+      "name": "t1024_d64",
+      "causal": false,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 4.76837158203125e-07,
+          "relative_l2_error": 1.4084861277297023e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 4.6566128730773926e-09,
+          "relative_l2_error": 1.9631009706699842e-07
+        },
+        "output": {
+          "max_absolute_error": 1.4901161193847656e-08,
+          "relative_l2_error": 2.925525564023701e-07
+        }
+      }
+    },
+    {
+      "name": "t1024_d64",
+      "causal": true,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 4.76837158203125e-07,
+          "relative_l2_error": 1.3932994136212073e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 4.6566128730773926e-09,
+          "relative_l2_error": 1.222196832628697e-08
+        },
+        "output": {
+          "max_absolute_error": 2.2351741790771484e-08,
+          "relative_l2_error": 1.8312395155817285e-08
+        }
+      }
+    },
+    {
+      "name": "t2048_d64",
+      "causal": false,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 5.960464477539062e-07,
+          "relative_l2_error": 1.451211062430957e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 1.862645149230957e-09,
+          "relative_l2_error": 1.7543636943173624e-07
+        },
+        "output": {
+          "max_absolute_error": 1.30385160446167e-08,
+          "relative_l2_error": 2.7275743263999175e-07
+        }
+      }
+    },
+    {
+      "name": "t2048_d64",
+      "causal": true,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 4.76837158203125e-07,
+          "relative_l2_error": 1.5039624656765227e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 3.259629011154175e-09,
+          "relative_l2_error": 8.393627126679348e-09
+        },
+        "output": {
+          "max_absolute_error": 1.4901161193847656e-08,
+          "relative_l2_error": 1.3095872830604094e-08
+        }
+      }
+    },
+    {
+      "name": "t4096_d64",
+      "causal": false,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 6.556510925292969e-07,
+          "relative_l2_error": 1.4462693798122928e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 1.3969838619232178e-09,
+          "relative_l2_error": 2.596772503693501e-07
+        },
+        "output": {
+          "max_absolute_error": 9.778887033462524e-09,
+          "relative_l2_error": 3.939429689125973e-07
+        }
+      }
+    },
+    {
+      "name": "t4096_d64",
+      "causal": true,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 4.76837158203125e-07,
+          "relative_l2_error": 1.434597578509056e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 2.3283064365386963e-09,
+          "relative_l2_error": 6.948144282148405e-09
+        },
+        "output": {
+          "max_absolute_error": 1.4901161193847656e-08,
+          "relative_l2_error": 1.0974167352628683e-08
+        }
+      }
+    },
+    {
+      "name": "t128_d128",
+      "causal": false,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 4.76837158203125e-07,
+          "relative_l2_error": 1.8317196293082816e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 1.4901161193847656e-08,
+          "relative_l2_error": 1.6565864768836036e-07
+        },
+        "output": {
+          "max_absolute_error": 4.470348358154297e-08,
+          "relative_l2_error": 2.1746078004980518e-07
+        }
+      }
+    },
+    {
+      "name": "t128_d128",
+      "causal": true,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 3.5762786865234375e-07,
+          "relative_l2_error": 2.0374643838749762e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 1.4901161193847656e-08,
+          "relative_l2_error": 2.8113394279216664e-08
+        },
+        "output": {
+          "max_absolute_error": 4.470348358154297e-08,
+          "relative_l2_error": 4.079676330093207e-08
+        }
+      }
+    },
+    {
+      "name": "t256_d128",
+      "causal": false,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 5.960464477539062e-07,
+          "relative_l2_error": 1.9215603686006943e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 1.4901161193847656e-08,
+          "relative_l2_error": 2.250819477467303e-07
+        },
+        "output": {
+          "max_absolute_error": 4.470348358154297e-08,
+          "relative_l2_error": 2.9782395927213656e-07
+        }
+      }
+    },
+    {
+      "name": "t256_d128",
+      "causal": true,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 5.960464477539062e-07,
+          "relative_l2_error": 1.920235348507049e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 1.4901161193847656e-08,
+          "relative_l2_error": 3.16659516386153e-08
+        },
+        "output": {
+          "max_absolute_error": 5.21540641784668e-08,
+          "relative_l2_error": 4.095454286812128e-08
+        }
+      }
+    },
+    {
+      "name": "t512_d128",
+      "causal": false,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 5.960464477539062e-07,
+          "relative_l2_error": 1.8839627102806844e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 7.450580596923828e-09,
+          "relative_l2_error": 1.9732681266759755e-07
+        },
+        "output": {
+          "max_absolute_error": 3.166496753692627e-08,
+          "relative_l2_error": 3.0448339316535566e-07
+        }
+      }
+    },
+    {
+      "name": "t512_d128",
+      "causal": true,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 5.960464477539062e-07,
+          "relative_l2_error": 1.9106077786545939e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 4.6566128730773926e-09,
+          "relative_l2_error": 1.799051752016112e-08
+        },
+        "output": {
+          "max_absolute_error": 4.470348358154297e-08,
+          "relative_l2_error": 2.6489450632993794e-08
+        }
+      }
+    },
+    {
+      "name": "t1024_d128",
+      "causal": false,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 7.152557373046875e-07,
+          "relative_l2_error": 1.953339534566112e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 2.3283064365386963e-09,
+          "relative_l2_error": 1.9514588700531021e-07
+        },
+        "output": {
+          "max_absolute_error": 2.2351741790771484e-08,
+          "relative_l2_error": 2.9481901719918824e-07
+        }
+      }
+    },
+    {
+      "name": "t1024_d128",
+      "causal": true,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 7.152557373046875e-07,
+          "relative_l2_error": 1.9146942520364973e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 3.725290298461914e-09,
+          "relative_l2_error": 1.1050872217310825e-08
+        },
+        "output": {
+          "max_absolute_error": 2.2351741790771484e-08,
+          "relative_l2_error": 1.7695867882139282e-08
+        }
+      }
+    },
+    {
+      "name": "t2048_d128",
+      "causal": false,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 5.960464477539062e-07,
+          "relative_l2_error": 1.8565535242487385e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 1.6298145055770874e-09,
+          "relative_l2_error": 1.950591155264192e-07
+        },
+        "output": {
+          "max_absolute_error": 1.1175870895385742e-08,
+          "relative_l2_error": 3.218675317384623e-07
+        }
+      }
+    },
+    {
+      "name": "t2048_d128",
+      "causal": true,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 5.960464477539062e-07,
+          "relative_l2_error": 1.8526701239807153e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 2.3283064365386963e-09,
+          "relative_l2_error": 9.326012850863208e-09
+        },
+        "output": {
+          "max_absolute_error": 1.862645149230957e-08,
+          "relative_l2_error": 1.6059718888072894e-08
+        }
+      }
+    },
+    {
+      "name": "t4096_d128",
+      "causal": false,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 5.960464477539062e-07,
+          "relative_l2_error": 1.881400066849892e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 9.313225746154785e-10,
+          "relative_l2_error": 2.2495343898754072e-07
+        },
+        "output": {
+          "max_absolute_error": 1.30385160446167e-08,
+          "relative_l2_error": 3.5585586033448635e-07
+        }
+      }
+    },
+    {
+      "name": "t4096_d128",
+      "causal": true,
+      "errors": {
+        "logits": {
+          "max_absolute_error": 5.960464477539062e-07,
+          "relative_l2_error": 1.9145373642004415e-07
+        },
+        "probabilities": {
+          "max_absolute_error": 9.313225746154785e-10,
+          "relative_l2_error": 6.3015193063620245e-09
+        },
+        "output": {
+          "max_absolute_error": 1.30385160446167e-08,
+          "relative_l2_error": 1.110339908905189e-08
+        }
+      }
+    }
+  ]
+}
