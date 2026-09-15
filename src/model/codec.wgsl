@@ -11,7 +11,7 @@ fn grp(i:u32)->u32{return config[config[7]+i];}
 fn encode_k(@builtin(global_invocation_id) id:vec3<u32>){
   let row=id.x;let destination=p.start+row;let d=64u;var x:array<f32,64>;var lengths:array<f32,8>;var centroidLengths:array<f32,8>;var codes:array<u32,64>;
   for(var i=0u;i<d;i++){
-    let at=(row*3u+p.head)*d+config[config[6]+i];x[i]=half_value(half_bits(input[at]));lengths[grp(i)]+=x[i]*x[i];
+    let at=(row*p.tokens+p.head)*d+config[config[6]+i];x[i]=half_value(half_bits(input[at]));lengths[grp(i)]+=x[i]*x[i];
   }
   for(var g=0u;g<config[1];g++){lengths[g]=sqrt(lengths[g]+1e-30);}
   for(var i=0u;i<d;i++){let n=lengths[grp(i)];x[i]/=select(1.0,n,n>1e-10);}

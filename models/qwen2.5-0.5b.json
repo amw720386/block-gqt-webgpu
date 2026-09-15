@@ -1,0 +1,18 @@
+{
+  "repository": "Qwen/Qwen2.5-0.5B-Instruct",
+  "revision": "7ae557604adf67be50417f59c2c2f167def9a775",
+  "files": ["config.json", "tokenizer.json", "tokenizer_config.json", "generation_config.json", "model.safetensors"],
+  "architecture": "Qwen2ForCausalLM",
+  "layers": 24,
+  "hidden_size": 896,
+  "intermediate_size": 4864,
+  "query_heads": 14,
+  "kv_heads": 2,
+  "head_dim": 64,
+  "rope_theta": 1000000,
+  "rope_layout": "split-half",
+  "cache_coordinate_space": "post-RoPE",
+  "original_dtype": "BF16",
+  "runtime_weight_dtype": "FP16",
+  "license": "Apache-2.0"
+}

@@ -3,7 +3,7 @@ import json
 import hashlib
 import torch
 import numpy as np
-from transformers import LlamaForCausalLM, LlamaConfig, AutoTokenizer, DynamicCache
+from transformers import AutoModelForCausalLM, AutoConfig, AutoTokenizer, DynamicCache
 from safetensors.torch import load_file
 from tests.oracles.oracle import ROOT
 from tests.oracles.fixture import write_fixture
@@ -12,9 +12,9 @@ class HalfCache(DynamicCache):
     def update(self,key_states,value_states,layer_idx,cache_kwargs=None):
         return super().update(key_states.half().float(),value_states.half().float(),layer_idx,cache_kwargs)
 
-def load_model():
-    directory=ROOT/'models/smollm2'; config=LlamaConfig.from_pretrained(directory);config._attn_implementation='eager'
-    model=LlamaForCausalLM(config).eval();state=load_file(str(directory/'fp16.safetensors'))
+def load_model(name='smollm2'):
+    directory=ROOT/'models'/name;config=AutoConfig.from_pretrained(directory);config._attn_implementation='eager';config.torch_dtype=torch.float32
+    model=AutoModelForCausalLM.from_config(config).eval();state=load_file(str(directory/'fp16.safetensors'))
     state['lm_head.weight']=state['model.embed_tokens.weight'];model.load_state_dict(state,strict=True)
     return model,AutoTokenizer.from_pretrained(directory,local_files_only=True)
 

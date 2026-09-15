@@ -17,6 +17,7 @@ dist/
 
 # Downloaded models and Hugging Face caches
 models/smollm2/
+models/qwen2.5-0.5b/
 .huggingface/
 huggingface/
 hf_cache/

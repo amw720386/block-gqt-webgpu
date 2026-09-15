@@ -6,6 +6,7 @@ struct P {rows:u32,n:u32,k:u32,mode:u32,start:u32,heads:u32,capacity:u32,pad:u32
 @group(0) @binding(4) var<storage,read> extra:array<f32>;
 fn xf(i:u32)->f32{return bitcast<f32>(x[i]);}
 fn wf(i:u32)->f32{return half_value((w[i/2u]>>((i%2u)*16u))&65535u);}
+fn ef(i:u32)->f32{return half_value((bitcast<u32>(extra[i/2u])>>((i%2u)*16u))&65535u);}
 @compute @workgroup_size(128)
 fn embedding(@builtin(global_invocation_id) id:vec3<u32>){let i=id.x;if(i<p.rows*p.n){y[i]=wf(x[i/p.n]*p.n+i%p.n);}}
 var<workgroup> aa:array<f32,256>;
@@ -27,15 +28,16 @@ fn matmul(@builtin(workgroup_id) group:vec3<u32>,@builtin(local_invocation_id) l
     }
     workgroupBarrier();
   }
-  if(m<p.rows&&n<p.n){y[m*p.n+n]=sums.x;}if(m<p.rows&&n+1u<p.n){y[m*p.n+n+1u]=sums.y;}
-  if(m+1u<p.rows&&n<p.n){y[(m+1u)*p.n+n]=sums.z;}if(m+1u<p.rows&&n+1u<p.n){y[(m+1u)*p.n+n+1u]=sums.w;}
+  var b0=0.0;var b1=0.0;if(p.mode==1u){b0=ef(n);if(n+1u<p.n){b1=ef(n+1u);}}
+  if(m<p.rows&&n<p.n){y[m*p.n+n]=sums.x+b0;}if(m<p.rows&&n+1u<p.n){y[m*p.n+n+1u]=sums.y+b1;}
+  if(m+1u<p.rows&&n<p.n){y[(m+1u)*p.n+n]=sums.z+b0;}if(m+1u<p.rows&&n+1u<p.n){y[(m+1u)*p.n+n+1u]=sums.w+b1;}
 }
 var<workgroup> reduction:array<f32,128>;
 @compute @workgroup_size(128)
 fn norm(@builtin(workgroup_id) group:vec3<u32>,@builtin(local_invocation_index) lane:u32){
   let row=group.x;var sum=0.0;for(var i=lane;i<p.n;i+=128u){let v=xf(row*p.n+i);sum+=v*v;}
   reduction[lane]=sum;workgroupBarrier();for(var stride=64u;stride>0u;stride/=2u){if(lane<stride){reduction[lane]+=reduction[lane+stride];}workgroupBarrier();}
-  let scale=inverseSqrt(reduction[0]/f32(p.n)+1e-5);
+  let epsilon=select(1e-5,1e-6,p.mode==6u);let scale=inverseSqrt(reduction[0]/f32(p.n)+epsilon);
   for(var i=lane;i<p.n;i+=128u){y[row*p.n+i]=xf(row*p.n+i)*scale*wf(i);}
 }
 @compute @workgroup_size(128)
@@ -45,8 +47,8 @@ fn element(@builtin(global_invocation_id) id:vec3<u32>){
 }
 @compute @workgroup_size(128)
 fn rope(@builtin(global_invocation_id) id:vec3<u32>){
-  let i=id.x;if(i>=p.rows*p.heads*32u){return;}
-  let row=i/(p.heads*32u);let head=(i/32u)%p.heads;let pair=i%32u;let base=(row*p.heads+head)*64u;
-  let theta=f32(p.start+row)*pow(100000.0,-f32(pair)/32.0);let c=cos(theta);let s=sin(theta);
-  let a=xf(base+pair);let b=xf(base+pair+32u);y[base+pair]=a*c-b*s;y[base+pair+32u]=b*c+a*s;
+  let pairs=p.n/2u;let i=id.x;if(i>=p.rows*p.heads*pairs){return;}
+  let row=i/(p.heads*pairs);let head=(i/pairs)%p.heads;let pair=i%pairs;let base=(row*p.heads+head)*p.n;
+  let theta=f32(p.start+row)*pow(f32(p.capacity),-f32(pair)/f32(pairs));let c=cos(theta);let s=sin(theta);
+  let a=xf(base+pair);let b=xf(base+pair+pairs);y[base+pair]=a*c-b*s;y[base+pair+pairs]=b*c+a*s;
 }

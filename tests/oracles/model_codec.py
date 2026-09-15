@@ -4,9 +4,9 @@ from tests.oracles.fixture import read_fixture
 from tests.oracles.oracle import ROOT
 from reference.production_math import encode,reconstruct
 
-def calibrations():
-    m,arrays=read_fixture(ROOT/'fixtures/model/calibration.json');result=[]
-    for i in range(90):
+def calibrations(path=None,count=90):
+    m,arrays=read_fixture(path or ROOT/'fixtures/model/calibration.json');result=[]
+    for i in range(count):
         c=torch.from_numpy(arrays[f'h{i}_config'].astype('int64'));t=torch.from_numpy(arrays[f'h{i}_table']);maxc=int(c[5]);offset=4096+64*maxc
         perm=c[int(c[6]):int(c[6])+64];inv=torch.argsort(perm)
         result.append({'rotation':t[:4096].reshape(64,64),'centroids':t[4096:offset].reshape(64,maxc),'lut_offsets':t[offset:offset+64],'lut_inv_scales':t[offset+64:offset+128],

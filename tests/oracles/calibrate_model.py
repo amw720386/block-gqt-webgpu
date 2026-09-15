@@ -2,6 +2,7 @@
 import hashlib
 import importlib.util
 import json
+import sys
 import torch
 from tests.oracles.export_model import load_model
 from tests.oracles.oracle import ROOT, COMMIT, load
@@ -15,16 +16,19 @@ def vendor(name):
     spec=importlib.util.spec_from_file_location(name,path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
 
 def main():
-    torch.set_num_threads(4);model,tokenizer=load_model();ids=tokenizer.encode(CALIBRATION,add_special_tokens=False)
+    name=sys.argv[sys.argv.index('--model')+1] if '--model' in sys.argv else 'smollm2';directory=ROOT/'models'/name
+    torch.set_num_threads(4);model,tokenizer=load_model(name);ids=tokenizer.encode(CALIBRATION,add_special_tokens=False);cfg=model.config
     qs={};ks={};hooks=[]
     for i,layer in enumerate(model.model.layers):
         hooks += [layer.self_attn.q_proj.register_forward_hook(lambda m,a,o,i=i:qs.__setitem__(i,o.detach())),layer.self_attn.k_proj.register_forward_hook(lambda m,a,o,i=i:ks.__setitem__(i,o.detach()))]
     with torch.no_grad():model(torch.tensor([ids]),use_cache=False)
     for h in hooks:h.remove()
     freq=vendor('freq_analysis');rope=vendor('rope_utils');arrays={};heads=[]
-    for layer in range(30):
-        for head in range(3):
-            q=qs[layer].reshape(-1,9,64)[:,head*3:head*3+3].reshape(-1,64);k=ks[layer].reshape(-1,3,64)[:,head]
+    qheads=cfg.num_attention_heads;kvheads=cfg.num_key_value_heads;head_dim=cfg.hidden_size//qheads;gqa=qheads//kvheads
+    assert head_dim==64 and qheads%kvheads==0
+    for layer in range(cfg.num_hidden_layers):
+        for head in range(kvheads):
+            q=qs[layer].reshape(-1,qheads,64)[:,head*gqa:head*gqa+gqa].reshape(-1,64);k=ks[layer].reshape(-1,kvheads,64)[:,head]
             scores=freq.compute_freq_importance_energy(rope.decompose_freq_blocks(q,64),rope.decompose_freq_blocks(k,64))
             widths=load('allocator').greedy_bit_allocation(scores,128,1,8);p=oracle.setup(widths);pm=oracle.pack_meta(widths,p._head_perm)
             assert torch.equal(pm['pack_perm'],torch.arange(64));lut,cb,offsets,inv=oracle.code_lut(p)
@@ -35,12 +39,13 @@ def main():
             ranges=[]
             for j in range(64):
                 members=(p._group_of==p._group_of[j]).nonzero().flatten();ranges += [int(members[0]),int(members[-1])+1]
-            prefix=f'h{layer*3+head}_';items={'config':('u32',config),'table':('f32',table.numpy()),'ranges':('u32',ranges),'scores':('f32',scores.numpy()),'widths':('u32',widths.numpy())}
+            prefix=f'h{layer*kvheads+head}_';items={'config':('u32',config),'table':('f32',table.numpy()),'ranges':('u32',ranges),'scores':('f32',scores.numpy()),'widths':('u32',widths.numpy())}
             arrays.update({prefix+n:value for n,value in items.items()});heads.append({'layer':layer,'kv_head':head,'row_bytes':row,'norm_stride':ns,'groups':ng,'max_centroids':maxc,'average_bits':float(widths.float().mean())})
-    meta={'version':2,'name':'smollm2-calibration','upstream_commit':COMMIT,'model_revision':'12fd25f77366fa6b3b4b768ec3050bf629380bac','heads':heads,'rotation_threshold':2,'average_bits':4,
+    manifest=json.loads((directory/'manifest.json').read_text());meta={'version':2,'name':f'{name}-calibration','upstream_commit':COMMIT,'model_revision':manifest['revision'],'heads':heads,'rotation_threshold':2,'average_bits':4,
           'coordinate_space':'post-RoPE cache; pre-RoPE pair-energy calibration','calibration_text':CALIBRATION,'calibration_ids':ids,
           'score':'(mean squared pair norm over all grouped Q heads + mean squared K pair norm)/2; pinned upstream function',
           'vendor_sha256':{f:hashlib.sha256((ROOT/'vendor/blockgtq-calibration'/f).read_bytes()).hexdigest() for f in ['freq_analysis.py','rope_utils.py']}}
-    write_fixture(ROOT/'fixtures/model/calibration.json',meta,arrays);print('Exported 90 real-model calibrations',flush=True)
+    target=ROOT/'fixtures/model/calibration.json' if name=='smollm2' else directory/'calibration.json'
+    write_fixture(target,meta,arrays);print(f'Exported {len(heads)} real-model calibrations',flush=True)
 
 if __name__=='__main__':main()
