@@ -1,0 +1,8 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Block-GTQ WebGPU model demo</title>
+<style>body{max-width:800px;margin:40px auto;padding:0 20px;font:16px system-ui;color:#18202a}textarea{width:100%;box-sizing:border-box;min-height:110px;font:inherit;padding:10px}button,select{font:inherit;padding:8px;margin:10px 8px 10px 0}pre{white-space:pre-wrap;background:#f2f4f7;padding:16px;overflow-wrap:anywhere}small{color:#465365}</style>
+<h1>Block-GTQ on WebGPU</h1><p>SmolLM2-135M-Instruct · local inference · deterministic greedy generation</p>
+<textarea id="prompt">Explain why the sky is blue in two sentences.</textarea>
+<div><select id="mode"><option value="fp16">FP16 K/V baseline</option><option value="compressed">Block-GTQ K + FP16 V</option></select><button id="run">Load and generate</button></div>
+<small>First load transfers about 269 MB of local FP16 weights. Run the setup command before starting the demo. Generates up to 32 tokens.</small>
+<p id="status">Ready.</p><pre id="output"></pre><pre id="metrics"></pre>
+<script type="module" src="/dist/examples/demo.js"></script></html>

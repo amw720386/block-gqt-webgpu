@@ -1,0 +1,281 @@
+{
+  "version": 2,
+  "name": "model-rope",
+  "cases": [
+    {
+      "name": "h3_p0",
+      "start": 0,
+      "heads": 3,
+      "rows": 3
+    },
+    {
+      "name": "h3_p1",
+      "start": 1,
+      "heads": 3,
+      "rows": 3
+    },
+    {
+      "name": "h3_p1023",
+      "start": 1023,
+      "heads": 3,
+      "rows": 3
+    },
+    {
+      "name": "h3_p4095",
+      "start": 4095,
+      "heads": 3,
+      "rows": 3
+    },
+    {
+      "name": "h3_p8189",
+      "start": 8189,
+      "heads": 3,
+      "rows": 3
+    },
+    {
+      "name": "h9_p0",
+      "start": 0,
+      "heads": 9,
+      "rows": 3
+    },
+    {
+      "name": "h9_p1",
+      "start": 1,
+      "heads": 9,
+      "rows": 3
+    },
+    {
+      "name": "h9_p1023",
+      "start": 1023,
+      "heads": 9,
+      "rows": 3
+    },
+    {
+      "name": "h9_p4095",
+      "start": 4095,
+      "heads": 9,
+      "rows": 3
+    },
+    {
+      "name": "h9_p8189",
+      "start": 8189,
+      "heads": 9,
+      "rows": 3
+    }
+  ],
+  "convention": "Transformers split-half RoPE, theta=100000; no scaling",
+  "endianness": "little",
+  "binary": "rope.bin",
+  "byte_length": 92288,
+  "sha256": "e5d471d1581c223ee2790a8567dee6c43530904a22723938b3189247d72b6354",
+  "arrays": {
+    "h3_p0_x": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        3,
+        64
+      ],
+      "offset": 0,
+      "nbytes": 2304
+    },
+    "h3_p0_y": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        3,
+        64
+      ],
+      "offset": 2304,
+      "nbytes": 2304
+    },
+    "h3_p1_x": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        3,
+        64
+      ],
+      "offset": 4608,
+      "nbytes": 2304
+    },
+    "h3_p1_y": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        3,
+        64
+      ],
+      "offset": 6912,
+      "nbytes": 2304
+    },
+    "h3_p1023_x": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        3,
+        64
+      ],
+      "offset": 9216,
+      "nbytes": 2304
+    },
+    "h3_p1023_y": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        3,
+        64
+      ],
+      "offset": 11520,
+      "nbytes": 2304
+    },
+    "h3_p4095_x": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        3,
+        64
+      ],
+      "offset": 13824,
+      "nbytes": 2304
+    },
+    "h3_p4095_y": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        3,
+        64
+      ],
+      "offset": 16128,
+      "nbytes": 2304
+    },
+    "h3_p8189_x": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        3,
+        64
+      ],
+      "offset": 18432,
+      "nbytes": 2304
+    },
+    "h3_p8189_y": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        3,
+        64
+      ],
+      "offset": 20736,
+      "nbytes": 2304
+    },
+    "h9_p0_x": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        9,
+        64
+      ],
+      "offset": 23040,
+      "nbytes": 6912
+    },
+    "h9_p0_y": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        9,
+        64
+      ],
+      "offset": 29952,
+      "nbytes": 6912
+    },
+    "h9_p1_x": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        9,
+        64
+      ],
+      "offset": 36864,
+      "nbytes": 6912
+    },
+    "h9_p1_y": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        9,
+        64
+      ],
+      "offset": 43776,
+      "nbytes": 6912
+    },
+    "h9_p1023_x": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        9,
+        64
+      ],
+      "offset": 50688,
+      "nbytes": 6912
+    },
+    "h9_p1023_y": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        9,
+        64
+      ],
+      "offset": 57600,
+      "nbytes": 6912
+    },
+    "h9_p4095_x": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        9,
+        64
+      ],
+      "offset": 64512,
+      "nbytes": 6912
+    },
+    "h9_p4095_y": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        9,
+        64
+      ],
+      "offset": 71424,
+      "nbytes": 6912
+    },
+    "h9_p8189_x": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        9,
+        64
+      ],
+      "offset": 78336,
+      "nbytes": 6912
+    },
+    "h9_p8189_y": {
+      "dtype": "f32",
+      "shape": [
+        3,
+        9,
+        64
+      ],
+      "offset": 85248,
+      "nbytes": 6912
+    },
+    "frequencies": {
+      "dtype": "f32",
+      "shape": [
+        32
+      ],
+      "offset": 92160,
+      "nbytes": 128
+    }
+  }
+}

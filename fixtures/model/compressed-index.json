@@ -1,0 +1,9 @@
+{
+  "cases": [
+    "compressed_step0",
+    "compressed_step1",
+    "compressed_step2",
+    "compressed_step3"
+  ],
+  "calibration_sha256": "aff9f52fd92656ffb973d6daf90fb2d340d5d5688bacdf86cdfb461c91d2ab61"
+}

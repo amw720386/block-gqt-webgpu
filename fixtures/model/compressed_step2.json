@@ -1,0 +1,300 @@
+{
+  "version": 2,
+  "name": "compressed_step2",
+  "rows": 1,
+  "step": 2,
+  "selected_token": 7042,
+  "reference": "Transformers eager plus pinned Block-GTQ CPU encoder emulator; not CUDA parity",
+  "endianness": "little",
+  "binary": "compressed_step2.bin",
+  "byte_length": 265732,
+  "sha256": "090540c88284653ce0f98f44f82097731feeb57b476b2a1019757580f10ee6ed",
+  "arrays": {
+    "input_ids": {
+      "dtype": "u32",
+      "shape": [
+        1
+      ],
+      "offset": 0,
+      "nbytes": 4
+    },
+    "logits": {
+      "dtype": "f32",
+      "shape": [
+        49152
+      ],
+      "offset": 4,
+      "nbytes": 196608
+    },
+    "attention_0": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 196612,
+      "nbytes": 2304
+    },
+    "attention_1": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 198916,
+      "nbytes": 2304
+    },
+    "attention_2": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 201220,
+      "nbytes": 2304
+    },
+    "attention_3": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 203524,
+      "nbytes": 2304
+    },
+    "attention_4": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 205828,
+      "nbytes": 2304
+    },
+    "attention_5": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 208132,
+      "nbytes": 2304
+    },
+    "attention_6": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 210436,
+      "nbytes": 2304
+    },
+    "attention_7": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 212740,
+      "nbytes": 2304
+    },
+    "attention_8": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 215044,
+      "nbytes": 2304
+    },
+    "attention_9": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 217348,
+      "nbytes": 2304
+    },
+    "attention_10": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 219652,
+      "nbytes": 2304
+    },
+    "attention_11": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 221956,
+      "nbytes": 2304
+    },
+    "attention_12": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 224260,
+      "nbytes": 2304
+    },
+    "attention_13": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 226564,
+      "nbytes": 2304
+    },
+    "attention_14": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 228868,
+      "nbytes": 2304
+    },
+    "attention_15": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 231172,
+      "nbytes": 2304
+    },
+    "attention_16": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 233476,
+      "nbytes": 2304
+    },
+    "attention_17": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 235780,
+      "nbytes": 2304
+    },
+    "attention_18": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 238084,
+      "nbytes": 2304
+    },
+    "attention_19": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 240388,
+      "nbytes": 2304
+    },
+    "attention_20": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 242692,
+      "nbytes": 2304
+    },
+    "attention_21": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 244996,
+      "nbytes": 2304
+    },
+    "attention_22": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 247300,
+      "nbytes": 2304
+    },
+    "attention_23": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 249604,
+      "nbytes": 2304
+    },
+    "attention_24": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 251908,
+      "nbytes": 2304
+    },
+    "attention_25": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 254212,
+      "nbytes": 2304
+    },
+    "attention_26": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 256516,
+      "nbytes": 2304
+    },
+    "attention_27": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 258820,
+      "nbytes": 2304
+    },
+    "attention_28": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 261124,
+      "nbytes": 2304
+    },
+    "attention_29": {
+      "dtype": "f32",
+      "shape": [
+        1,
+        576
+      ],
+      "offset": 263428,
+      "nbytes": 2304
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "cases": [
+    "fp16_step0",
+    "fp16_step1",
+    "fp16_step2",
+    "fp16_step3"
+  ],
+  "prompt": "The capital of France is",
+  "prompt_ids": [
+    504,
+    3575,
+    282,
+    4649,
+    314
+  ],
+  "greedy_ids": [
+    7042,
+    30,
+    7042,
+    314
+  ],
+  "greedy_text": " Paris. Paris is",
+  "tokenizer_tests": [
+    {
+      "text": "The capital of France is",
+      "ids": [
+        504,
+        3575,
+        282,
+        4649,
+        314
+      ]
+    },
+    {
+      "text": "Hello, world!",
+      "ids": [
+        19556,
+        28,
+        905,
+        17
+      ]
+    },
+    {
+      "text": "123 45.67",
+      "ids": [
+        33,
+        34,
+        35,
+        216,
+        36,
+        37,
+        30,
+        38,
+        39
+      ]
+    },
+    {
+      "text": " caf\u00e9\n\u6771\u4eac \ud83d\ude00",
+      "ids": [
+        37366,
+        198,
+        30679,
+        126,
+        16736,
+        122,
+        40303,
+        218
+      ]
+    },
+    {
+      "text": " spaces  \n\n",
+      "ids": [
+        5600,
+        256,
+        1116
+      ]
+    },
+    {
+      "text": "<|im_start|>user\nWhat is 2+2?<|im_end|>\n<|im_start|>assistant\n",
+      "ids": [
+        1,
+        4093,
+        198,
+        1780,
+        314,
+        216,
+        34,
+        27,
+        34,
+        47,
+        2,
+        198,
+        1,
+        520,
+        9531,
+        198
+      ]
+    },
+    {
+      "text": "I'm HERE; we're testing.",
+      "ids": [
+        57,
+        5248,
+        27873,
+        43,
+        392,
+        2316,
+        3728,
+        30
+      ]
+    }
+  ],
+  "weights_sha256": "de6252d7a7d37e5c8b24ff8fa00848c119dabc85a677f998afa112561336a4a2"
+}
