@@ -24,6 +24,15 @@ hf_cache/
 *.gguf
 *.bin.index.json
 
+# Regenerable large synthetic attention workloads (not needed for npm test)
+fixtures/attention/t1024_*.bin
+fixtures/attention/t1024_*.json
+fixtures/attention/t2048_*.bin
+fixtures/attention/t2048_*.json
+fixtures/attention/t4096_*.bin
+fixtures/attention/t4096_*.json
+fixtures/attention/bench-index.json
+
 # Generated test, benchmark, and profiling output
 results/
 artifacts/

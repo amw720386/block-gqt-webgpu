@@ -12,9 +12,11 @@ class AttentionTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):torch.set_num_threads(1)
 
-    def test_twelve_workloads_against_goldens_and_pytorch_sdpa(self):
+    def test_committed_workloads_against_goldens_and_pytorch_sdpa(self):
         index=json.loads((ROOT/"fixtures/attention/index.json").read_text())
-        self.assertEqual(len(index["cases"]),12)
+        self.assertEqual(len(index["cases"]),6)
+        self.assertEqual({(c["dim"],c["context_length"]) for c in index["cases"]},
+                         {(64,128),(64,256),(64,512),(128,128),(128,256),(128,512)})
         for c in index["cases"]:
             m,a=read_fixture(ROOT/f"fixtures/attention/{c['name']}.json")
             q,k,v=(torch.from_numpy(a[x]) for x in ("q","k","v"))

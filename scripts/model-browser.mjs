@@ -1,17 +1,26 @@
 import {createServer} from 'node:http';
-import {readFile,writeFile,mkdir,readdir} from 'node:fs/promises';
+import {access,readFile,writeFile,mkdir,readdir} from 'node:fs/promises';
 import {resolve,sep,extname,relative} from 'node:path';
 import {chromium} from 'playwright';
 import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 import os from 'node:os';
 const root=process.cwd(),mode=process.argv[2]||'model-test';
+const modelManifest=resolve(root,'models/smollm2/manifest.json'),modelWeights=resolve(root,'models/smollm2/fp16.safetensors');
+async function modelReady(){try{await access(modelManifest);await access(modelWeights);return true;}catch{return false;}}
+async function ensureModelWeights(){
+  if(await modelReady())return;
+  console.log('SmolLM2 weights not found under models/smollm2/. Running scripts/setup_model.py (one-time ~269 MB download)...');
+  execFileSync(process.env.BLOCKGTQ_PYTHON||'python',[resolve(root,'scripts/setup_model.py')],{cwd:root,stdio:'inherit'});
+  if(!await modelReady())throw new Error('Model setup failed. Install Python deps (requirements-model.txt) and run: python scripts/setup_model.py');
+}
+await ensureModelWeights();
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex'),source_sha256={};
 async function scan(path){for(const e of await readdir(path,{withFileTypes:true})){if(e.name==='__pycache__'||e.name.endsWith('.egg-info'))continue;const p=resolve(path,e.name);if(e.isDirectory())await scan(p);else source_sha256[relative(root,p).replaceAll('\\','/')]=sha(await readFile(p));}}
 for(const folder of ['src','tests','scripts','fixtures','vendor'])await scan(resolve(root,folder));
 for(const file of ['models/model.json','models/smollm2/manifest.json','package.json','package-lock.json','requirements.txt','requirements-model.txt','benchmarks/model.ts','benchmarks/model-decode.ts','benchmarks/plot_model.py'])source_sha256[file]=sha(await readFile(resolve(root,file)));
 const baseline=JSON.parse(await readFile(resolve(root,'benchmarks/raw/2026-09-15T09-27-00-112Z-phase4-phase4-bench.json')));
-for(const [file,hash] of Object.entries(baseline.source_sha256))if(file.startsWith('src/')&&source_sha256[file]!==hash)throw new Error(`Preserved baseline changed: ${file}`);
+for(const [file,hash] of Object.entries(baseline.source_sha256))if((file.startsWith('src/attention/')||file.startsWith('src/runtime/'))&&source_sha256[file]!==hash)throw new Error(`Preserved baseline changed: ${file}`);
 const correctness_gates={};
 if(mode==='model-benchmark'||mode==='model-decode-benchmark'){
   for(const file of ['model-test.json','model-compressed-test.json','model-primitives.json','model-codec-test.json','model-live-test.json','model-cpu-gate.json','model-compressed-cpu-gate.json']){

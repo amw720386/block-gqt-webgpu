@@ -33,7 +33,10 @@ export async function benchmark(){
   const device=await adapter.requestDevice({requiredFeatures:["timestamp-query"]}),errors:string[]=[];
   device.addEventListener("uncapturederror",e=>errors.push(e.error.message));
   try{
-    const engine=await AttentionEngine.create(device),index=await (await fetch("/fixtures/attention/index.json")).json(),cases=[];
+    const engine=await AttentionEngine.create(device);
+    const index=await (await fetch("/fixtures/attention/bench-index.json")).json();
+    if(index.cases.length!==12)throw new Error("Run python -m tests.oracles.export_attention --bench before attention benchmarks");
+    const cases=[];
     for(const [caseIndex,c] of index.cases.entries()){
       const {fixture:f,m,parameters}=await attentionFixture(c.name),values=new Values(device,m.dim,m.context_length);
       values.append(f.f32("v"));const paths:KeyStore[]=[new FP16Keys(device,m.dim,m.context_length),await CompressedKeys.create(device,parameters,m.context_length)];

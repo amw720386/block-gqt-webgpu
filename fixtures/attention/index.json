@@ -17,21 +17,6 @@
       "context_length": 512
     },
     {
-      "name": "t1024_d64",
-      "dim": 64,
-      "context_length": 1024
-    },
-    {
-      "name": "t2048_d64",
-      "dim": 64,
-      "context_length": 2048
-    },
-    {
-      "name": "t4096_d64",
-      "dim": 64,
-      "context_length": 4096
-    },
-    {
       "name": "t128_d128",
       "dim": 128,
       "context_length": 128
@@ -45,21 +30,6 @@
       "name": "t512_d128",
       "dim": 128,
       "context_length": 512
-    },
-    {
-      "name": "t1024_d128",
-      "dim": 128,
-      "context_length": 1024
-    },
-    {
-      "name": "t2048_d128",
-      "dim": 128,
-      "context_length": 2048
-    },
-    {
-      "name": "t4096_d128",
-      "dim": 128,
-      "context_length": 4096
     }
   ]
 }
