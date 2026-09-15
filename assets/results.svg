@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="360" viewBox="0 0 960 360" role="img" aria-labelledby="title desc">
+  <title id="title">Block-GTQ memory and decode results at 4096 prompt tokens</title>
+  <desc id="desc">Block-GTQ reduces K storage and full KV storage but increases supplied-token decode latency.</desc>
+  <style>
+    text{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;fill:#172033}
+    .title{font-size:20px;font-weight:700}.label{font-size:14px}.value{font-size:15px;font-weight:650}
+    .axis{stroke:#cbd5e1;stroke-width:1}.fp16{fill:#94a3b8}.gtq{fill:#2563eb}.note{font-size:12px;fill:#526071}
+  </style>
+  <rect width="960" height="360" rx="12" fill="#fff"/>
+  <text class="title" x="40" y="40">SmolLM2-135M-Instruct · 4,096-token prompt</text>
+  <text class="label" x="40" y="82">Persistent K (MiB, including tables)</text>
+  <line class="axis" x1="40" y1="150" x2="450" y2="150"/>
+  <rect class="fp16" x="40" y="96" width="371" height="20" rx="3"/><text class="value" x="419" y="112">45.35</text>
+  <rect class="gtq" x="40" y="124" width="166" height="20" rx="3"/><text class="value" x="214" y="140">20.24</text>
+  <text class="note" x="40" y="171">2.24× smaller K; V remains FP16</text>
+  <text class="label" x="510" y="82">Full KV (MiB, including tables)</text>
+  <line class="axis" x1="510" y1="150" x2="920" y2="150"/>
+  <rect class="fp16" x="510" y="96" width="371" height="20" rx="3"/><text class="value" x="889" y="112">90.70</text>
+  <rect class="gtq" x="510" y="124" width="268" height="20" rx="3"/><text class="value" x="786" y="140">65.60</text>
+  <text class="note" x="510" y="171">1.38× smaller full KV</text>
+  <text class="label" x="40" y="226">Median supplied-token decode (ms/token)</text>
+  <line class="axis" x1="40" y1="294" x2="920" y2="294"/>
+  <rect class="fp16" x="40" y="240" width="342" height="20" rx="3"/><text class="value" x="390" y="256">146.0</text>
+  <rect class="gtq" x="40" y="268" width="880" height="20" rx="3"/><text class="value" x="866" y="284" fill="#fff">375.6</text>
+  <text class="note" x="40" y="319">FP16 K/V</text><circle class="fp16" cx="126" cy="315" r="6"/>
+  <text class="note" x="160" y="319">Block-GTQ K + FP16 V</text><circle class="gtq" cx="326" cy="315" r="6"/>
+  <text class="note" x="40" y="343">Teacher-forced supplement; lower latency is better.</text>
+</svg>
